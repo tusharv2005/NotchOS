@@ -17,7 +17,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         // The App Sandbox can't read other tools' sign-ins or add hooks to their settings, so the App
         // Store edition has no AI Usage or Agents. Sharing with Android, and the Sound tab's per-app
         // volume (process taps, and a private call to tell whose helper plays), ship in the GitHub build.
-        private let preferences = NotchPreferences(unavailable: [.usage, .agents, .sound])
+        private let preferences = NotchPreferences(unavailable: [.usage, .agents, .sound, .live])
     #else
         private let preferences = NotchPreferences()
         private let usage = UsageFeature()
@@ -36,6 +36,8 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     private let shortcuts = ShortcutsFeature()
     private let timer = TimerFeature()
     private let network = NetworkFeature()
+    /// Live scores and the watchlist. Not in the App Store edition, whose sandbox has no network access.
+    private let live = LiveFeature()
     private let mirror = MirrorFeature()
     private lazy var features = FeatureHost(featureList)
     // System live activities, which belong to no tab.
@@ -75,7 +77,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         #if APP_STORE
             [media, shelf, clipboard, calendar, tasks, notes, shortcuts, timer, network, mirror]
         #else
-            [media, shelf, clipboard, calendar, tasks, notes, shortcuts, timer, network, mirror, usage, agents]
+            [media, shelf, clipboard, calendar, tasks, notes, shortcuts, timer, network, live, mirror, usage, agents]
         #endif
     }
 
@@ -101,6 +103,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         case .shortcuts: return AnyView(shortcuts.view)
         case .timer: return AnyView(timer.view)
         case .network: return AnyView(network.view)
+        case .live: return AnyView(live.view)
         case .mirror: return AnyView(mirror.view)
         case .usage:
             #if APP_STORE
@@ -143,6 +146,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         case .shortcuts: return section(shortcuts.settingsView)
         case .notes: return section(notes.settingsView)
         case .network: return section(network.settingsView)
+        case .live: return section(live.settingsView)
         case .timer, .mirror: return nil
         case .usage:
             #if APP_STORE
@@ -195,6 +199,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         timer.onOngoing = { [weak coordinator] in coordinator?.setOngoing($0, for: .timer) }
         network.onActivity = { [weak coordinator] in coordinator?.broadcast(.activity($0)) }
         network.onOngoing = { [weak coordinator] in coordinator?.setOngoing($0, for: .network) }
+        live.onOngoing = { [weak coordinator] in coordinator?.setOngoing($0, for: .live) }
         shortcuts.onActivity = { [weak coordinator] in coordinator?.broadcast(.activity($0)) }
         tasks.onActivity = { [weak coordinator] in coordinator?.broadcast(.activity($0)) }
         notes.onSendToTasks = { [tasks] in tasks.add($0) }

@@ -54,6 +54,7 @@ extension FeatureID {
         case .shortcuts: "stack-2"
         case .timer: "alarm"
         case .network: "ufo"  // beaming your data up and down
+        case .live: "broadcast"  // live scores and prices
         case .mirror: "device-computer-camera"
         case .usage: "gauge"
         case .agents: "terminal-2"

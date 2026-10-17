@@ -83,6 +83,11 @@ public and buildable whatever happens to the project.
   share with it too, over Quick Share on your Wi-Fi: send shelf files to a
   phone, and accept files and links from one right in the notch.
   [More below](#android).
+- **Live.** Scores from the leagues you follow (cricket, Premier League,
+  LaLiga, Champions League, MLS, NBA, NFL, MLB, NHL), live games first, and a
+  watchlist of stocks, indices, and crypto with today's chart. Turn on the
+  ticker and the closed notch shows live scores and prices beside the camera,
+  one at a time.
 - **Clipboard.** Turn on a history of what you copy (text, links, images, and
   files), search it with ⌃⌥V from any app, and copy anything again, with
   favorites that stay. Passwords and anything marked private are skipped.

@@ -227,6 +227,41 @@ private struct NetworkSettings: View {
     }
 }
 
+extension LiveFeature {
+    public var settingsView: some View { LiveSettings(live: self) }
+}
+
+private struct LiveSettings: View {
+    @Bindable var live: LiveFeature
+
+    var body: some View {
+        Group {
+            Picker(selection: $live.ticker) {
+                ForEach(LiveFeature.Ticker.allCases) { Text($0.title).tag($0) }
+            } label: {
+                Text("Show in the closed notch")
+                Text(
+                    "Beside the camera, one item at a time, changing every few seconds. Live Games shows only "
+                        + "while a game you follow is on. Scores and prices are checked every 90 seconds while "
+                        + "they show there, and every 30 seconds while the tab is open.")
+            }
+            ForEach(League.allCases) { league in
+                Toggle(isOn: Binding(get: { live.follows(league) }, set: { live.setFollows(league, $0) })) {
+                    Label(league.title, systemImage: league.symbol)
+                }
+            }
+            LabeledContent {
+                Button("Reset Watchlist", action: live.resetWatchlist)
+            } label: {
+                Text("Watchlist")
+                Text(
+                    "\(live.watchlist.count) of \(LiveFeature.watchlistLimit). Add, reorder, or remove symbols in "
+                        + "the tab's Markets section. Prices come from Yahoo Finance and may be delayed.")
+            }
+        }
+    }
+}
+
 extension ShelfFeature {
     public var settingsView: some View {
         LabeledContent(items.count == 1 ? "1 item on the shelf" : "\(items.count) items on the shelf") {

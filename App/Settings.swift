@@ -152,6 +152,7 @@ extension SettingsSelection.Page {
             case .shortcuts: (feature.symbol, .indigo)
             case .timer: (feature.symbol, .orange)
             case .network: ("arrow.up.arrow.down", .blue)
+            case .live: (feature.symbol, .green)
             case .mirror: (feature.symbol, .green)
             case .usage: (feature.symbol, .purple)
             case .agents: (feature.symbol, .gray)
@@ -179,6 +180,7 @@ extension SettingsSelection.Page {
             case .shortcuts: "The shortcuts you make in the Shortcuts app, a click away."
             case .timer: "Timers, a stopwatch with laps, and Keep Awake."
             case .network: "Your download and upload speed, and how much you've used."
+            case .live: "Live scores from the leagues you follow, and your stocks and crypto."
             case .mirror: "Your camera, on only while its tab is open."
             case .usage: "How much of each AI coding plan you've used."
             case .agents: "When Claude Code or Codex needs you or finishes, in the closed notch."

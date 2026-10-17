@@ -110,7 +110,7 @@ public final class PanelCoordinator {
             ongoing[index].activity = activity
         } else {
             ongoing.removeAll { $0.feature == feature }
-            let underneath: Set<FeatureID> = [.network, .media]
+            let underneath: Set<FeatureID> = [.network, .live, .media]
             if let activity {
                 ongoing.insert((feature, activity), at: underneath.contains(feature) ? 0 : ongoing.count)
             }

@@ -6,6 +6,15 @@ Every notable change to NotchOS, newest first. The format follows
 
 ## [Unreleased]
 
+### Added
+
+- **Live tab.** Live scores from the leagues you follow and a watchlist of
+  stocks, indices, and crypto, with a ticker on the closed notch.
+
+### Fixed
+
+- The Mirror tab could close the app as the camera started.
+
 ## [1.0.0] - 2026-10-17
 
 The first release of NotchOS: your MacBook's notch, finally useful.
