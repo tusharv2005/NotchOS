@@ -14,5 +14,8 @@
 	     macOS asks once per app (Privacy & Security › Automation). -->
 	<key>com.apple.security.automation.apple-events</key>
 	<true/>
+	<!-- Ad-hoc local builds: let the app load its embedded Sparkle.framework. -->
+	<key>com.apple.security.cs.disable-library-validation</key>
+	<true/>
 </dict>
 </plist>
