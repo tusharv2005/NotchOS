@@ -91,6 +91,13 @@ final class CameraSession: @unchecked Sendable {
         }
     }
 
+    /// Connects a preview on the session's queue. Connected from the main thread, it can change the
+    /// session's connections while `startRunning` walks them there, which throws and stops the app.
+    func attach(_ preview: AVCaptureVideoPreviewLayer) {
+        nonisolated(unsafe) let preview = preview
+        queue.async { [self] in preview.session = session }
+    }
+
     private func configure() -> Bool {
         let discovery = AVCaptureDevice.DiscoverySession(
             deviceTypes: [.builtInWideAngleCamera, .external], mediaType: .video, position: .unspecified)

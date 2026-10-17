@@ -22,7 +22,7 @@ struct MirrorView: View {
             FeatureUnavailableView(
                 symbol: "video.slash", title: "No camera", message: "Connect a camera to use the mirror.")
         case .granted:
-            CameraPreview(session: mirror.camera.session)
+            CameraPreview(camera: mirror.camera)
                 .scaleEffect(x: -1, y: 1)  // a mirror, not a photo
                 .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
                 .overlay {
@@ -35,11 +35,12 @@ struct MirrorView: View {
 
 /// The capture session's live picture, filling the tab.
 private struct CameraPreview: NSViewRepresentable {
-    let session: AVCaptureSession
+    let camera: CameraSession
 
     func makeNSView(context: Context) -> NSView {
         let view = NSView()
-        let preview = AVCaptureVideoPreviewLayer(session: session)
+        let preview = AVCaptureVideoPreviewLayer()
+        camera.attach(preview)
         preview.videoGravity = .resizeAspectFill
         view.layer = preview
         view.wantsLayer = true
