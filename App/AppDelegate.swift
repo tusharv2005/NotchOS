@@ -261,7 +261,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
 
-    /// Shows a message from outside ILoveNotch, from a link or the Shortcuts action, as a live
+    /// Shows a message from outside NotchOS, from a link or the Shortcuts action, as a live
     /// activity.
     func showInNotch(_ message: Activity) {
         guard let coordinator else {

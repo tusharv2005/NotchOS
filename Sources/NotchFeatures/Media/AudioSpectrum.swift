@@ -179,7 +179,7 @@ private final class SystemAudioTap: @unchecked Sendable {
         description.uuid = UUID()
         description.muteBehavior = .unmuted
         description.isPrivate = true
-        description.name = "ILoveNotch waveform"
+        description.name = "NotchOS waveform"
         try check("create the tap", AudioHardwareCreateProcessTap(description, &tapID))
         do {
             let format: AudioStreamBasicDescription = try read(tapID, kAudioTapPropertyFormat)
@@ -190,7 +190,7 @@ private final class SystemAudioTap: @unchecked Sendable {
             let outputUID = try deviceUID(output)
             // The tap rides on the real output device; a tap alone as the main device hears nothing.
             let aggregate: [String: Any] = [
-                kAudioAggregateDeviceNameKey: "ILoveNotch waveform",
+                kAudioAggregateDeviceNameKey: "NotchOS waveform",
                 kAudioAggregateDeviceUIDKey: "cafe.opennotch.waveform.\(UUID().uuidString)",
                 kAudioAggregateDeviceMainSubDeviceKey: outputUID,
                 kAudioAggregateDeviceIsPrivateKey: true,

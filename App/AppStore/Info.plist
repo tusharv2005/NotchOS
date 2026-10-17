@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>NSAudioCaptureUsageDescription</key>
-	<string>ILoveNotch listens to what's playing so the media waveform moves with the music. Audio is analyzed on this Mac as it plays and is never recorded.</string>
+	<string>NotchOS listens to what's playing so the media waveform moves with the music. Audio is analyzed on this Mac as it plays and is never recorded.</string>
 	<key>NSAppleEventsUsageDescription</key>
-	<string>ILoveNotch works Music and Spotify from the notch: play, pause, skip, shuffle, repeat, and what plays next. It only talks to the app that's playing.</string>
+	<string>NotchOS works Music and Spotify from the notch: play, pause, skip, shuffle, repeat, and what plays next. It only talks to the app that's playing.</string>
 	<!-- This edition makes no network requests, so it has no encryption to declare, and App Store
 	     Connect stops asking about export compliance on every upload. -->
 	<key>ITSAppUsesNonExemptEncryption</key>

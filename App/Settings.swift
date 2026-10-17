@@ -203,7 +203,7 @@ private struct SettingsIcon: View {
     }
 }
 
-/// ILoveNotch itself, at the top of the sidebar where System Settings puts your account: it opens
+/// NotchOS itself, at the top of the sidebar where System Settings puts your account: it opens
 /// About.
 private struct AppRow: View {
     var body: some View {
@@ -213,7 +213,7 @@ private struct AppRow: View {
                 .frame(width: 36, height: 36)
                 .accessibilityHidden(true)
             VStack(alignment: .leading, spacing: 1) {
-                Text("ILoveNotch").font(.headline)
+                Text("NotchOS").font(.headline)
                 Text("Version \(Updater.version)").font(.caption).foregroundStyle(.secondary)
             }
         }
@@ -328,7 +328,7 @@ private struct GeneralPage: View {
                     Text("Reset to defaults")
                     Text("Tabs, their order, shortcuts, appearance, and displays. Your notes, shelf, and history stay.")
                 }
-                .confirmationDialog("Reset ILoveNotch's settings?", isPresented: $confirmsReset) {
+                .confirmationDialog("Reset NotchOS's settings?", isPresented: $confirmsReset) {
                     Button("Reset to Defaults", role: .destructive) { preferences.reset() }
                 } message: {
                     Text("Every tab comes back in its first place, with the original shortcuts and look.")
@@ -481,7 +481,7 @@ private struct DisplaysPage: View {
             Section {
                 Toggle(isOn: $preferences.showOnAllDisplays) {
                     Text("Show on all displays")
-                    Text("Otherwise ILoveNotch uses the built-in display's notch, or the main display.")
+                    Text("Otherwise NotchOS uses the built-in display's notch, or the main display.")
                 }
             }
             Section {
@@ -645,7 +645,7 @@ private struct AboutSettings: View {
             #if !APP_STORE  // the App Store updates its edition
                 if updater.sourceDirectory != nil {
                     Button(
-                        updater.state == .updating ? "Updating…" : "Update ILoveNotch", action: updater.updateFromSource
+                        updater.state == .updating ? "Updating…" : "Update NotchOS", action: updater.updateFromSource
                     )
                     .disabled(updater.state == .updating)
                     if updater.state == .failed {
@@ -660,7 +660,7 @@ private struct AboutSettings: View {
                 HStack(spacing: 12) {
                     Image(systemName: "star.fill").font(.title)
                     VStack(alignment: .leading, spacing: 2) {
-                        Text("Star ILoveNotch on GitHub").font(.headline)
+                        Text("Star NotchOS on GitHub").font(.headline)
                         Text("A star is how other Mac users find it.").font(.callout).opacity(0.9)
                     }
                     Spacer(minLength: 0)

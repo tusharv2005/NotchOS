@@ -52,7 +52,7 @@ struct CopilotOrgBillingClient: Sendable {
             headers: [
                 "Authorization": "token \(token)",
                 "Accept": "application/vnd.github+json",
-                "User-Agent": "ILoveNotch",
+                "User-Agent": "NotchOS",
                 "X-GitHub-Api-Version": "2022-11-28"
             ],
             timeout: 15

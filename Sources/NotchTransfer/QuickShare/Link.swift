@@ -17,7 +17,7 @@ enum QuickShareError: Error, Equatable, Sendable {
     case unsupported
     /// The phone couldn't be reached.
     case unreachable
-    /// macOS doesn't let ILoveNotch use the local network.
+    /// macOS doesn't let NotchOS use the local network.
     case localNetworkDenied
     /// The connection dropped or stalled.
     case lost

@@ -69,7 +69,7 @@ final class AppTap: @unchecked Sendable {
         description = CATapDescription(stereoMixdownOfProcesses: processes)
         description.uuid = UUID()
         description.isPrivate = true
-        description.name = "ILoveNotch \(app)"
+        description.name = "NotchOS \(app)"
         description.muteBehavior =
             switch mode {
             case .silence: .muted
@@ -158,7 +158,7 @@ final class AppTap: @unchecked Sendable {
         // The tap rides on the real output device: its clock drives the IO proc, and what the IO proc
         // writes plays there. Only a tap listed at creation joins the aggregate.
         let aggregate: [String: Any] = [
-            kAudioAggregateDeviceNameKey: "ILoveNotch mixer",
+            kAudioAggregateDeviceNameKey: "NotchOS mixer",
             kAudioAggregateDeviceUIDKey: "cafe.opennotch.mixer.\(UUID().uuidString)",
             kAudioAggregateDeviceMainSubDeviceKey: deviceUID,
             kAudioAggregateDeviceIsPrivateKey: true,
@@ -311,7 +311,7 @@ struct RenderState {
     /// 1 once the app is muted at its source, so this is its only sound. Until then the IO proc
     /// writes silence, so the app never plays twice.
     var replacing: UInt32 = 0
-    /// 1 once the tap has delivered sound: macOS lets ILoveNotch hear the app.
+    /// 1 once the tap has delivered sound: macOS lets NotchOS hear the app.
     var heard: UInt32 = 0
     var cycles: UInt32 = 0
 }

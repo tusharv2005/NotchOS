@@ -15,7 +15,7 @@ final class StatusItemController: NSObject, NSMenuDelegate {
         self.openSettings = openSettings
         super.init()
         statusItem.button?.image = NSImage(
-            systemSymbolName: "rectangle.topthird.inset.filled", accessibilityDescription: "ILoveNotch")
+            systemSymbolName: "rectangle.topthird.inset.filled", accessibilityDescription: "NotchOS")
         let menu = NSMenu()
         menu.delegate = self
         statusItem.menu = menu
@@ -23,18 +23,18 @@ final class StatusItemController: NSObject, NSMenuDelegate {
 
     func menuNeedsUpdate(_ menu: NSMenu) {
         menu.removeAllItems()
-        menu.addItem(.sectionHeader(title: "ILoveNotch \(Updater.version)"))
+        menu.addItem(.sectionHeader(title: "NotchOS \(Updater.version)"))
         menu.addItem(menuItem("Settings…", symbol: "gearshape", #selector(showSettings), key: ","))
         for item in updateItems() { menu.addItem(item) }
         menu.addItem(.separator())
-        menu.addItem(menuItem("About ILoveNotch", symbol: "info.circle", #selector(showAbout)))
+        menu.addItem(menuItem("About NotchOS", symbol: "info.circle", #selector(showAbout)))
         #if !APP_STORE  // the App Store tells its edition's story itself, and takes no outside payments (3.1.1)
             menu.addItem(
                 menuItem("What's New in \(Updater.shortVersion)", symbol: "sparkles", #selector(showReleaseNotes)))
-            menu.addItem(menuItem("Sponsor ILoveNotch…", symbol: "heart", #selector(sponsor)))
+            menu.addItem(menuItem("Sponsor NotchOS…", symbol: "heart", #selector(sponsor)))
         #endif
         menu.addItem(.separator())
-        let quit = NSMenuItem(title: "Quit ILoveNotch", action: #selector(NSApplication.terminate), keyEquivalent: "q")
+        let quit = NSMenuItem(title: "Quit NotchOS", action: #selector(NSApplication.terminate), keyEquivalent: "q")
         quit.image = NSImage(systemSymbolName: "power", accessibilityDescription: nil)
         menu.addItem(quit)
     }
@@ -49,9 +49,9 @@ final class StatusItemController: NSObject, NSMenuDelegate {
             }
             switch updater.state {
             case .idle:
-                return [menuItem("Update ILoveNotch", symbol: symbol, #selector(update))]
+                return [menuItem("Update NotchOS", symbol: symbol, #selector(update))]
             case .updating:
-                let item = menuItem("Updating ILoveNotch…", symbol: symbol, nil)
+                let item = menuItem("Updating NotchOS…", symbol: symbol, nil)
                 item.isEnabled = false
                 return [item]
             case .failed:
