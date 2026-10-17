@@ -22,15 +22,15 @@ settingGroups:
     PRODUCT_NAME: NotchOS
     PRODUCT_BUNDLE_IDENTIFIER: cafe.opennotch.app
     ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
-    MARKETING_VERSION: 1.4.0 # the latest release, so builds from source say where they stand; releases set their own
-    CURRENT_PROJECT_VERSION: 2
+    MARKETING_VERSION: 1.0.0
+    CURRENT_PROJECT_VERSION: 1
     SWIFT_VERSION: "6.0" # Swift 6 language mode: complete strict-concurrency checking
     SWIFT_TREAT_WARNINGS_AS_ERRORS: YES
     GENERATE_INFOPLIST_FILE: YES
     INFOPLIST_KEY_LSUIElement: YES # accessory app: no Dock icon, no menu bar
     # The App Store listing's primary category; Utilities is the secondary (docs/app-store/metadata.md).
     INFOPLIST_KEY_LSApplicationCategoryType: public.app-category.productivity
-    INFOPLIST_KEY_NSHumanReadableCopyright: Copyright © 2026 Niyam Vora. MIT License.
+    INFOPLIST_KEY_NSHumanReadableCopyright: Copyright © 2026 Tushar Varshney. MIT License.
     # Shelf files dropped from protected folders are checked again on later launches.
     INFOPLIST_KEY_NSDesktopFolderUsageDescription: NotchOS keeps files you drop on the shelf so you can drag them out later.
     INFOPLIST_KEY_NSDocumentsFolderUsageDescription: NotchOS keeps files you drop on the shelf so you can drag them out later.
