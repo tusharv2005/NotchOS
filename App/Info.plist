@@ -5,7 +5,7 @@
 	<key>OpenNotchSourceDirectory</key>
 	<string>$(OPENNOTCH_SOURCE)</string>
 	<key>SUFeedURL</key>
-	<string>https://raw.githubusercontent.com/niyamvora/ILoveNotch/main/appcast.xml</string>
+	<string>https://raw.githubusercontent.com/tusharv2005/NotchOS/main/appcast.xml</string>
 	<key>SUPublicEDKey</key>
 	<string>rKEETTORw3k063xBn4P4UWHfyHwzEjFsHiXCYqPzPlQ=</string>
 	<key>OpenNotchCommit</key>
@@ -21,7 +21,7 @@
 	<array>
 		<string>_FC9F5ED42C8A._tcp</string>
 	</array>
-	<!-- Show in Notch: ilovenotch://show?title=… from scripts and other apps. -->
+	<!-- Show in Notch: notchos://show?title=… from scripts and other apps. -->
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -29,7 +29,7 @@
 			<string>cafe.opennotch.app</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>ilovenotch</string>
+				<string>notchos</string>
 			</array>
 		</dict>
 	</array>

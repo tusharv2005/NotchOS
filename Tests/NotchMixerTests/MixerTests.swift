@@ -215,14 +215,14 @@ struct MixerDecisionTests {
     @Test func devicesShowWhatTheyAre() {
         let bluetooth = kAudioDeviceTransportTypeBluetooth
         let builtIn = kAudioDeviceTransportTypeBuiltIn
-        #expect(Mixer.symbol(transport: bluetooth, dataSource: 0, name: "Niyam's AirPods Pro") == "airpodspro")
+        #expect(Mixer.symbol(transport: bluetooth, dataSource: 0, name: "Tushar's AirPods Pro") == "airpodspro")
         #expect(Mixer.symbol(transport: bluetooth, dataSource: 0, name: "AirPods Max") == "airpodsmax")
         #expect(Mixer.symbol(transport: bluetooth, dataSource: 0, name: "WH-1000XM5") == "headphones")
         #expect(Mixer.symbol(transport: builtIn, dataSource: 0x6864_706E, name: "External Headphones") == "headphones")
         #expect(Mixer.symbol(transport: builtIn, dataSource: 0x6973_706B, name: "MacBook Pro Speakers") == nil)
         #expect(Mixer.symbol(transport: kAudioDeviceTransportTypeHDMI, dataSource: 0, name: "LG HDR 4K") == "tv")
         let continuity = kAudioDeviceTransportTypeContinuityCaptureWireless
-        #expect(Mixer.symbol(transport: continuity, dataSource: 0, name: "Niyam's iPhone Microphone") == "iphone")
+        #expect(Mixer.symbol(transport: continuity, dataSource: 0, name: "Tushar's iPhone Microphone") == "iphone")
         #expect(Mixer.symbol(transport: builtIn, dataSource: 0, name: "MacBook Pro Microphone") == nil)
     }
 
@@ -254,11 +254,11 @@ struct MixerDecisionTests {
     }
 
     @Test func deviceNamesShortenToFitUnderAFader() {
-        #expect(SoundView.shortName("Niyam's AirPods Pro") == "AirPods Pro")
+        #expect(SoundView.shortName("Tushar's AirPods Pro") == "AirPods Pro")
         #expect(SoundView.shortName("MacBook Pro Speakers") == "Speakers")
         #expect(SoundView.shortName("MacBook Air Microphone") == "Microphone")
         #expect(SoundView.shortName("External Headphones") == "Headphones")
-        #expect(SoundView.shortName("Niyam’s iPhone Microphone") == "iPhone Microphone")
+        #expect(SoundView.shortName("Tushar’s iPhone Microphone") == "iPhone Microphone")
         #expect(SoundView.shortName("Studio Display Speakers") == "Studio Display Speakers")
         #expect(SoundView.shortName("LG HDR 4K") == "LG HDR 4K")
     }
@@ -289,12 +289,12 @@ struct MixerSnapshotTests {
 
     private static let outputs = [
         SoundDevice(id: 72, name: "MacBook Pro Speakers", symbol: "speaker.wave.2.fill"),
-        SoundDevice(id: 80, name: "Niyam's AirPods Pro", symbol: "airpodspro"),
+        SoundDevice(id: 80, name: "Tushar's AirPods Pro", symbol: "airpodspro"),
         SoundDevice(id: 91, name: "LG HDR 4K", symbol: "tv"),
     ]
     private static let inputs = [
         SoundDevice(id: 66, name: "MacBook Pro Microphone", symbol: "mic.fill"),
-        SoundDevice(id: 80, name: "Niyam's AirPods Pro", symbol: "airpodspro"),
+        SoundDevice(id: 80, name: "Tushar's AirPods Pro", symbol: "airpodspro"),
     ]
 
     private func sampleMixer() -> Mixer {
@@ -324,9 +324,9 @@ struct MixerSnapshotTests {
             try render(SoundView(mixer: sampleMixer()), name: "sound" + suffix, size: size)
             let quiet = Mixer(defaults: UserDefaults(suiteName: "MixerSnapshot-\(UUID())")!, live: false)
             let airPods = DeviceLevel(
-                id: 80, name: "Niyam's AirPods Pro", level: 0.3, isMuted: false, hasVolume: true, symbol: "airpodspro")
+                id: 80, name: "Tushar's AirPods Pro", level: 0.3, isMuted: false, hasVolume: true, symbol: "airpodspro")
             let muted = DeviceLevel(
-                id: 80, name: "Niyam's AirPods Pro", level: 0.5, isMuted: true, hasVolume: true, symbol: "airpodspro")
+                id: 80, name: "Tushar's AirPods Pro", level: 0.5, isMuted: true, hasVolume: true, symbol: "airpodspro")
             quiet.preview(apps: [], output: airPods, input: muted, outputs: Self.outputs, inputs: Self.inputs)
             try render(SoundView(mixer: quiet), name: "sound-empty" + suffix, size: size)
         }

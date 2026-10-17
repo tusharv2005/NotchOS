@@ -105,8 +105,8 @@ public struct SoundView: View {
             })
     }
 
-    /// What fits under a fader or in the device list: "AirPods Pro" out of "Niyam's AirPods Pro",
-    /// "Speakers" out of "MacBook Pro Speakers", "iPhone Microphone" out of "Niyam's iPhone
+    /// What fits under a fader or in the device list: "AirPods Pro" out of "Tushar's AirPods Pro",
+    /// "Speakers" out of "MacBook Pro Speakers", "iPhone Microphone" out of "Tushar's iPhone
     /// Microphone".
     nonisolated static func shortName(_ name: String) -> String {
         if let airPods = name.range(of: "AirPods") { return String(name[airPods.lowerBound...]) }

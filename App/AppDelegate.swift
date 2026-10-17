@@ -250,7 +250,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         statusItem = StatusItemController(updater: updater) { [weak self] in self?.settings.show($0) }
     }
 
-    /// Show in Notch links from scripts and other apps: ilovenotch://show?title=….
+    /// Show in Notch links from scripts and other apps: notchos://show?title=….
     func application(_ application: NSApplication, open urls: [URL]) {
         for url in urls {
             guard let message = ShowInNotch.activity(from: url) else {

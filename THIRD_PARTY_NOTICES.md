@@ -9,7 +9,7 @@ from this file.
 
 https://github.com/ungive/mediaremote-adapter, v0.7.7
 (commit e3ff5021eb0875858bd05f48d2e9ba2e962d1cf6), vendored as a git submodule
-in `ThirdParty/mediaremote-adapter`. ILoveNotch ships its framework and perl
+in `ThirdParty/mediaremote-adapter`. NotchOS ships its framework and perl
 script and runs them with the system perl to read now-playing information.
 
 ```text
@@ -86,10 +86,10 @@ https://github.com/robinebers/openusage at commit
 `Sources/NotchUsage/OpenUsage`: the provider integrations, usage models, pricing
 engine, and services behind the AI Usage tab. Its price supplement ships as
 `Sources/NotchUsage/Resources/pricing_supplement.json`. Each adapted file names
-its origin in its header. ILoveNotch's changes: its own cache folder and
+its origin in its header. NotchOS's changes: its own cache folder and
 User-Agent, no reset-credit claiming, no Antigravity token renewal (it embeds
 Antigravity's OAuth client secret), and a rebuilt UI. "OpenUsage" and its
-logo are Robin Ebers' trademarks. ILoveNotch doesn't use the logo, and isn't
+logo are Robin Ebers' trademarks. NotchOS doesn't use the logo, and isn't
 affiliated with or endorsed by OpenUsage.
 
 ```text
@@ -195,7 +195,7 @@ theSVG lists for each:
 | `opencode.svg` | opencode | MIT |
 | `zai.svg` | zhipu | MIT |
 
-Each logo is its owner's trademark. ILoveNotch shows them only to identify each
+Each logo is its owner's trademark. NotchOS shows them only to identify each
 provider, and doesn't suggest any endorsement.
 
 ```text
@@ -263,8 +263,8 @@ Copyright 2020–2023 Google LLC
 The messages in `Sources/NotchTransfer/QuickShare` (`Frames.swift` and
 `Crypto.swift`) follow the field numbers and values of Nearby Connections'
 `offline_wire_formats.proto`, Quick Share's `wire_format.proto`, and UKEY2's
-`ukey.proto`, `securemessage.proto`, and `securegcm.proto`, so ILoveNotch can
-talk to Android phones. No Google code is included: ILoveNotch encodes these
+`ukey.proto`, `securemessage.proto`, and `securegcm.proto`, so NotchOS can
+talk to Android phones. No Google code is included: NotchOS encodes these
 messages itself.
 
 ```text

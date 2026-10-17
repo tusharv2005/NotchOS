@@ -1,6 +1,6 @@
 # Parity checklist
 
-User-visible behaviors ILoveNotch should cover, grouped by target release. This
+User-visible behaviors NotchOS should cover, grouped by target release. This
 list describes behavior only. How any other app implements these features is
 out of scope and must not be copied.
 
@@ -30,7 +30,7 @@ that delivers it.
 - [x] Tabs adapt to shorter notches: media drops its waveform, then shrinks its artwork; laps move beside the stopwatch
 - [x] Pushing the pointer against the top edge over the notch opens it
 - [x] Choose how the notch opens and closes (spring, jelly, pop, smooth, snappy, or instant), with a preview
-- [x] Builds from a checkout update themselves from the menu bar (**Update ILoveNotch**)
+- [x] Builds from a checkout update themselves from the menu bar (**Update NotchOS**)
 
 ## v0.2: media and shelf (Phase 3)
 
@@ -98,7 +98,7 @@ that delivers it.
 - [x] A countdown in the closed notch for the five minutes before a meeting with a link, opening with its name; hovering it opens the Calendar tab
 - [x] A keyboard shortcut from any app (⌃⌥O, recorded in Settings › General) opens the notch on the display under the pointer; it, Escape, or a click away closes it
 - [x] Keep Awake in the Timer tab: the Mac and its display stay awake for 30 minutes to 4 hours or until turned off, shown in the closed notch with the time left; it ends when the Mac sleeps anyway, on quit, or when the Timer tab is turned off
-- [x] Show in Notch: a Shortcuts action and an `ilovenotch://show` link put a message and a symbol in the notch for 1 to 30 seconds, in both editions, without taking focus
+- [x] Show in Notch: a Shortcuts action and an `notchos://show` link put a message and a symbol in the notch for 1 to 30 seconds, in both editions, without taking focus
 - [x] Agent status: an Agents tab lists Claude Code and Codex sessions, working, waiting for approval, or finished, with a button back to each one's terminal
 - [x] While an agent waits for approval the closed notch shows it until it's answered, and a session that finishes while its app is in the background is announced
 - [x] Connecting a tool adds hooks to its own settings next to any others, and disconnecting removes exactly those; GitHub build only

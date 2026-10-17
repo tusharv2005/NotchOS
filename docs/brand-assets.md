@@ -5,7 +5,7 @@ tool, put them in a `Brand/` folder at the repository root with the names below,
 request (or hand the folder over). The code side (asset catalog, `project.yml`, the About screen,
 the menu bar item, the DMG) is wired up from these files, so nothing else needs editing.
 
-**Done:** the name, ILoveNotch; the app icon, in `App/Assets.xcassets/AppIcon.appiconset` and on
+**Done:** the name, NotchOS; the app icon, in `App/Assets.xcassets/AppIcon.appiconset` and on
 the About screen; nine 1440 × 900 marketing screenshots, six of them in the README. **Still
 wanted:** the menu bar icon (section 3), the logo SVGs (4), the social preview (5), the DMG
 background (6), the accent colors (1), and optionally a layered Icon Composer icon (2).
@@ -16,7 +16,7 @@ background (6), the accent colors (1), and optionally a layered Icon Composer ic
 |------|--------|-------|
 | Product name | text, 30 characters max | Must be unique on the Mac App Store. |
 | Subtitle | text, 30 characters max | One line under the name on the App Store and in the README. |
-| Bundle ID | reverse DNS, for example `com.niyamvora.notch` | Permanent once published. The current one is `cafe.opennotch.app`. |
+| Bundle ID | reverse DNS, for example `com.tusharv2005.notch` | Permanent once published. The current one is `cafe.opennotch.app`. |
 | Accent color | hex, one for light and one for dark | Tints selection, buttons, and links. |
 
 Put the text in `Brand/brand.json`:

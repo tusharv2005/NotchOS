@@ -1,6 +1,6 @@
 # Releasing
 
-How a signed, notarized ILoveNotch reaches GitHub Releases and installed copies. The scripted part
+How a signed, notarized NotchOS reaches GitHub Releases and installed copies. The scripted part
 is `make release VERSION=…` ([`scripts/release.sh`](../scripts/release.sh)); publishing is a
 deliberate, manual step.
 
@@ -44,9 +44,9 @@ the hardened runtime, notarizes and staples it, packages the DMG, adds the relea
 with its EdDSA signature, and drafts a GitHub release with the DMG and `SHA256SUMS`, tagged on the
 commit it built. A version with a suffix (`-beta.1`) becomes a pre-release.
 
-The DMG goes on the release twice: as `ILoveNotch-<version>.dmg`, which the appcast and the Homebrew
-cask point to, and as `ILoveNotch.dmg`, so
-<https://github.com/niyamvora/ILoveNotch/releases/latest/download/ILoveNotch.dmg> always downloads
+The DMG goes on the release twice: as `NotchOS-<version>.dmg`, which the appcast and the Homebrew
+cask point to, and as `NotchOS.dmg`, so
+<https://github.com/tusharv2005/NotchOS/releases/latest/download/NotchOS.dmg> always downloads
 the newest release. The README and the website link there.
 
 `main` is often checked out by other work in progress, so run the release from a worktree of it:
@@ -64,11 +64,11 @@ Run it at the Mac, awake and unlocked:
   ```bash
   tag=v1.0.1
   .build/sparkle/bin/generate_appcast \
-    --download-url-prefix "https://github.com/niyamvora/ILoveNotch/releases/download/$tag/" \
+    --download-url-prefix "https://github.com/tusharv2005/NotchOS/releases/download/$tag/" \
     "build/release/$tag/updates"
   cp "build/release/$tag/updates/appcast.xml" appcast.xml
-  cd "build/release/$tag" && cp ILoveNotch-*.dmg ILoveNotch.dmg && shasum -a 256 ILoveNotch*.dmg >SHA256SUMS
-  gh release create "$tag" ILoveNotch*.dmg SHA256SUMS --draft --title "ILoveNotch ${tag#v}" \
+  cd "build/release/$tag" && cp NotchOS-*.dmg NotchOS.dmg && shasum -a 256 NotchOS*.dmg >SHA256SUMS
+  gh release create "$tag" NotchOS*.dmg SHA256SUMS --draft --title "NotchOS ${tag#v}" \
     --notes-file notes.md --generate-notes --target "$(git rev-parse HEAD)"
   ```
 
@@ -78,11 +78,11 @@ Then:
    the download links follow.
 2. Commit the updated `appcast.xml` on `dev` and ship it to `main`. Installed copies read it from
    `main`, so an update is offered only once both the release and the appcast are public.
-3. Update the Homebrew cask in [niyamvora/homebrew-tap](https://github.com/niyamvora/homebrew-tap):
-   `version` and the DMG's `sha256` (from `SHA256SUMS`) in `Casks/ilovenotch.rb`. The cask sets
+3. Update the Homebrew cask in [tusharv2005/homebrew-tap](https://github.com/tusharv2005/homebrew-tap):
+   `version` and the DMG's `sha256` (from `SHA256SUMS`) in `Casks/notchos.rb`. The cask sets
    `auto_updates`, so installed copies still update through Sparkle.
 
-If notarization is slow and people are waiting, the signed `ILoveNotch.zip` the script submitted
+If notarization is slow and people are waiting, the signed `NotchOS.zip` the script submitted
 (`build/release/v<version>/`) can go on the release early. Until Apple accepts it, macOS asks people
 to allow it in System Settings › Privacy & Security; afterwards Gatekeeper finds the ticket online,
 so the same download opens normally. 1.0.0 went out this way.
@@ -91,7 +91,7 @@ so the same download opens normally. 1.0.0 went out this way.
 
 The `OpenNotch App Store` scheme builds the sandboxed edition (see the
 [plan](plan/implementation-plan.md#app-store-edition) for what it leaves out). The app record is
-**ILoveNotch** (Apple ID 6815805975, bundle ID `cafe.opennotch.app`, SKU `ilovenotch-mac`), made on
+**NotchOS** (Apple ID 6815805975, bundle ID `cafe.opennotch.app`, SKU `notchos-mac`), made on
 the App Store Connect website because the API can't create app records. 1.0.0 was submitted for
 review on 24 September 2026, rejected, and resubmitted as 1.3.0 on 2 October
 ([listing](app-store/metadata.md)). Two App Review rules came out of it: the edition must not link
@@ -125,7 +125,7 @@ version waits for Beta App Review before testers outside the team can install it
 
 - `spctl --assess --type execute --verbose` on the exported app says "Notarized Developer ID"
   (the script runs it).
-- Install from the DMG on a Mac or user account that has never run ILoveNotch: it opens without a
+- Install from the DMG on a Mac or user account that has never run NotchOS: it opens without a
   Gatekeeper warning.
 - Update an installed earlier release through **Check for Updates…**.
 - Keep the previous DMG: rolling back is installing it over the new one.

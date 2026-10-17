@@ -1,4 +1,4 @@
-# ILoveNotch implementation plan
+# NotchOS implementation plan
 
 Status: shipped. 1.0.0 is on GitHub Releases (25 September 2026); the Mac App Store edition is in review  
 Target: original, open-source macOS notch utility  
@@ -7,7 +7,7 @@ Primary architecture: Apple silicon, with Universal 2 support evaluated for v1
 
 ## 1. Product direction
 
-ILoveNotch will recreate the useful product category with original code, design,
+NotchOS will recreate the useful product category with original code, design,
 copy, icons, motion, and assets. The goal is functional parity followed by a
 better experience, not a branded or pixel-for-pixel copy of another product.
 
@@ -25,7 +25,7 @@ Core principles:
   set. A sandboxed Mac App Store edition with a smaller feature set follows it
   (see [§10](#app-store-edition)).
 
-The product is named ILoveNotch. The code keeps OpenNotch for its modules,
+The product is named NotchOS. The code keeps OpenNotch for its modules,
 targets, and bundle ID (`cafe.opennotch.app`), so settings and permissions carry
 over.
 
@@ -69,9 +69,9 @@ macOS callbacks
 Recommended project shape:
 
 ```text
-ILoveNotch/
+NotchOS/
 ├── App/
-│   ├── ILoveNotchApp
+│   ├── NotchOSApp
 │   ├── AppDelegate
 │   └── Resources
 ├── Packages/
@@ -151,7 +151,7 @@ spectrograph views, Perlin noise, vibrating circles, and looping videos. These
 are static observations; the unpublished runtime behavior and exact parameters
 are unknown.
 
-ILoveNotch should use one named motion system:
+NotchOS should use one named motion system:
 
 | Interaction         | Technique                             | Initial timing | Resource rule                  |
 | ------------------- | ------------------------------------- | -------------: | ------------------------------ |
@@ -183,7 +183,7 @@ Guidelines:
 Static bundle observations do not assert how the commercial app's unpublished
 source is organized internally.
 
-| Area              | Reference observation                                   | Current prototype                          | ILoveNotch target                                      |
+| Area              | Reference observation                                   | Current prototype                          | NotchOS target                                      |
 | ----------------- | ------------------------------------------------------- | ------------------------------------------ | ----------------------------------------------------- |
 | Technology        | Native SwiftUI/AppKit                                   | Native SwiftUI/AppKit                      | Keep native                                           |
 | Architecture      | Multiple managers in one executable                     | One executable target                      | Core, surface, features, adapters, diagnostics        |
@@ -228,7 +228,7 @@ Candidate dependencies:
 - Keep Lottie out of the always-visible path.
 - Track every dependency and license in `THIRD_PARTY_NOTICES`.
 
-Do not copy code from GPL projects while distributing ILoveNotch under MIT. A
+Do not copy code from GPL projects while distributing NotchOS under MIT. A
 deliberate move to GPL is a separate product decision.
 
 ## 7. Delivery phases
@@ -443,7 +443,7 @@ Behavioral coverage:
 
 GitHub Releases are the official installation and update channel from the first
 public beta onward. Users should be able to open the repository's Releases
-page, download the latest DMG, drag ILoveNotch into Applications, and launch it
+page, download the latest DMG, drag NotchOS into Applications, and launch it
 normally. No public release will wait for, or depend on, Mac App Store approval.
 
 The project owner has confirmed that a paid Apple Developer account is
@@ -462,7 +462,7 @@ Release steps:
 5. Enable Hardened Runtime and only the required entitlements.
 6. Submit the signed artifact using `notarytool`.
 7. Staple the notarization ticket to the app and DMG.
-8. Package a polished DMG containing ILoveNotch and an Applications shortcut.
+8. Package a polished DMG containing NotchOS and an Applications shortcut.
 9. Verify the DMG on a clean Mac user account before publishing it.
 10. Generate SHA-256 checksums, an SBOM, and a third-party license inventory.
 11. Publish the DMG, checksum, release notes, and source archives on GitHub
@@ -471,7 +471,7 @@ Release steps:
     GitHub Releases.
 13. Test upgrades, skipped versions, interrupted downloads, and rollback.
 14. Add a Homebrew cask as an optional second installation route. Done with
-    1.0.0: `brew install --cask niyamvora/tap/ilovenotch`.
+    1.0.0: `brew install --cask tusharv2005/tap/notchos`.
 
 The README download instructions should always point to the latest GitHub
 Release and clearly distinguish:
@@ -501,7 +501,7 @@ the full one:
 | Volume display replacement (event tap) | Opt-in | No: needs Accessibility, unavailable to sandboxed apps |
 | Bluetooth accessory battery | Experimental | No |
 | AI usage (Phase 8) | Yes | No: reads other apps' credentials |
-| Updates | Update ILoveNotch (local builds) or Sparkle | The App Store |
+| Updates | Update NotchOS (local builds) or Sparkle | The App Store |
 
 The edition is the `OpenNotchAppStore` target (scheme `OpenNotch App Store`): the
 same sources with an `APP_STORE` compile-time flag, sandbox entitlements

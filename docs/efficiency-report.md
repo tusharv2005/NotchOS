@@ -1,6 +1,6 @@
-# ILoveNotch: efficiency report
+# NotchOS: efficiency report
 
-Real-world measurements of ILoveNotch running for 20 hours on a working laptop. This file is the raw
+Real-world measurements of NotchOS running for 20 hours on a working laptop. This file is the raw
 content for a designed page. Every number here was measured, and the notes at the end say which
 claims are safe to make in public.
 
@@ -37,7 +37,7 @@ Taglines the numbers support:
 |---|---|
 | Machine | Apple M5 Pro laptop, 15 CPU cores, 24 GB RAM |
 | macOS | 26.6.2 (25G83) |
-| App | ILoveNotch, release build installed 24 Sep 2026, 20:19 |
+| App | NotchOS, release build installed 24 Sep 2026, 20:19 |
 | Launched | Thu 24 Sep 2026, 20:19 IST |
 | Snapshot taken | Fri 25 Sep 2026, 16:31 IST |
 | Total time running | 20 h 12 min |
@@ -79,7 +79,7 @@ It covers every app over the same window, about 22:00 on 24 Sep to 16:07 on 25 S
 | 10 | Aerial wallpaper | 0.65% |
 | 11 | Finder | 0.57% |
 | 12 | Recordly | 0.56% |
-| **13** | **ILoveNotch** | **0.45%** |
+| **13** | **NotchOS** | **0.45%** |
 | 14 | Text cursor UI (macOS) | 0.30% |
 | 15 | Microsoft Excel | 0.29% |
 | 19 | Spotify | 0.10% |
@@ -93,11 +93,11 @@ better battery life.
 
 | App | Wakeups over the logged window |
 |---|---|
-| **ILoveNotch** | **1,502** |
+| **NotchOS** | **1,502** |
 | Chrome | 224,112 |
 | VS Code | 525,651 |
 
-ILoveNotch caused about 150× fewer wakeups than Chrome.
+NotchOS caused about 150× fewer wakeups than Chrome.
 
 ### Live power sample
 
@@ -105,13 +105,13 @@ Source: `powermetrics`, 6 samples of 5 seconds each, taken at 16:29 while the Ma
 
 | Process | CPU (ms per second) | Energy Impact |
 |---|---|---|
-| **ILoveNotch** | **1.84** (range 0.67–3.62) | **0.56** (range 0.12–1.30) |
+| **NotchOS** | **1.84** (range 0.67–3.62) | **0.56** (range 0.12–1.30) |
 | Chrome (main process only) | 22.6 | 26.2 |
 | WindowServer (macOS) | 211.8 | 271.7 |
 
 ### GPU
 
-The energy log records 0 J of GPU energy for ILoveNotch, against 293 J for Chrome and 60 J for VS
+The energy log records 0 J of GPU energy for NotchOS, against 293 J for Chrome and 60 J for VS
 Code. See the note at the end before using this number.
 
 ---
@@ -154,7 +154,7 @@ What the 77 MB holds:
 
 ## The one spike, found and fixed
 
-**What happened:** the footprint peaked once at **374 MB**. ILoveNotch works out your AI spend by
+**What happened:** the footprint peaked once at **374 MB**. NotchOS works out your AI spend by
 reading the usage logs Claude Code and Codex keep on your Mac. The reader kept every piece of a log
 in memory until it finished the whole file. The biggest log here was 80 MB, and on a fresh launch
 the app reads up to 8 logs at once.
@@ -179,7 +179,7 @@ still has the spike.
 
 | Helper | What it does | Cost |
 |---|---|---|
-| Media helper (the system's `perl` running ILoveNotch's script) | Streams now-playing info from macOS | 6.4 MB memory, 0.2 s CPU per run; one copy at a time, restarted cleanly on each wake |
+| Media helper (the system's `perl` running NotchOS's script) | Streams now-playing info from macOS | 6.4 MB memory, 0.2 s CPU per run; one copy at a time, restarted cleanly on each wake |
 | Audio waveform | Listens to playing audio to animate the waveform | Runs only while Media is on screen and playing: 2 sessions, 4 seconds total in 20 hours |
 
 ---

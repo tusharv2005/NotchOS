@@ -10,7 +10,7 @@
 	     Connect stops asking about export compliance on every upload. -->
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
-	<!-- Show in Notch: ilovenotch://show?title=… from scripts and other apps. -->
+	<!-- Show in Notch: notchos://show?title=… from scripts and other apps. -->
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -18,7 +18,7 @@
 			<string>cafe.opennotch.app</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>ilovenotch</string>
+				<string>notchos</string>
 			</array>
 		</dict>
 	</array>

@@ -1,15 +1,15 @@
-# Contributing to ILoveNotch
+# Contributing to NotchOS
 
-Thanks for helping. ILoveNotch is a clean-room, MIT-licensed project, so a few
+Thanks for helping. NotchOS is a clean-room, MIT-licensed project, so a few
 rules matter more than usual.
 
 ## Where to start
 
-- **Question or idea?** Open a [Discussion](https://github.com/niyamvora/ILoveNotch/discussions).
-- **Bug or feature request?** Open an [issue](https://github.com/niyamvora/ILoveNotch/issues/new/choose)
+- **Question or idea?** Open a [Discussion](https://github.com/tusharv2005/NotchOS/discussions).
+- **Bug or feature request?** Open an [issue](https://github.com/tusharv2005/NotchOS/issues/new/choose)
   with its template. For anything bigger than a small fix, agree on the approach in the
   issue before writing the PR.
-- **Looking for something to do?** Try [good first issues](https://github.com/niyamvora/ILoveNotch/labels/good%20first%20issue).
+- **Looking for something to do?** Try [good first issues](https://github.com/tusharv2005/NotchOS/labels/good%20first%20issue).
 
 ## Clean-room rules
 
@@ -91,7 +91,7 @@ commit to one logical change that builds and passes tests on its own.
 
 ## Versioning and releases
 
-ILoveNotch follows [Semantic Versioning](https://semver.org/), with a `vX.Y.Z`
+NotchOS follows [Semantic Versioning](https://semver.org/), with a `vX.Y.Z`
 tag on the exact commit each release was built from: a patch version for fixes,
 a minor one for new features, and a major one for a change that breaks
 something people rely on, such as dropping a macOS version. A pre-release
@@ -107,6 +107,6 @@ at the top of the GitHub release and in the app's update prompt, and CI fails a
 pull request whose version has none.
 
 Releases ship as signed, notarized DMGs on
-[GitHub Releases](https://github.com/niyamvora/ILoveNotch/releases), through
+[GitHub Releases](https://github.com/tusharv2005/NotchOS/releases), through
 Sparkle to installed copies, and through the Homebrew cask. The steps are in
 [docs/releasing.md](docs/releasing.md).

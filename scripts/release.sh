@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Builds, signs, notarizes, and packages an ILoveNotch release, then drafts it on GitHub:
+# Builds, signs, notarizes, and packages an NotchOS release, then drafts it on GitHub:
 #
 #   scripts/release.sh 0.3.0            # a release
 #   scripts/release.sh 0.3.0-beta.1     # a beta, drafted as a GitHub pre-release
@@ -68,7 +68,7 @@ cat >"$out/ExportOptions.plist" <<PLIST
 PLIST
 xcodebuild -exportArchive -archivePath "$out/OpenNotch.xcarchive" -exportPath "$out/export" \
     -exportOptionsPlist "$out/ExportOptions.plist" -allowProvisioningUpdates -quiet
-app="$out/export/ILoveNotch.app"
+app="$out/export/NotchOS.app"
 codesign --verify --deep --strict "$app"
 # The Authority lines only print at -vv. Captured rather than piped to grep -q: under pipefail, grep's
 # early exit can kill codesign with SIGPIPE and fail a correctly signed export.
@@ -78,17 +78,17 @@ codesign --verify --deep --strict "$app"
 }
 
 echo "== Notarizing the app"
-ditto -c -k --keepParent "$app" "$out/ILoveNotch.zip"
-xcrun notarytool submit "$out/ILoveNotch.zip" "${auth[@]}" --wait
+ditto -c -k --keepParent "$app" "$out/NotchOS.zip"
+xcrun notarytool submit "$out/NotchOS.zip" "${auth[@]}" --wait
 xcrun stapler staple "$app"
 spctl --assess --type execute --verbose "$app"  # Gatekeeper's verdict: "Notarized Developer ID"
 
 echo "== Packaging the DMG"
-dmg="$out/ILoveNotch-$version.dmg"
+dmg="$out/NotchOS-$version.dmg"
 mkdir -p "$out/dmg"
-ditto "$app" "$out/dmg/ILoveNotch.app"
+ditto "$app" "$out/dmg/NotchOS.app"
 ln -s /Applications "$out/dmg/Applications"
-hdiutil create -volname "ILoveNotch $version" -srcfolder "$out/dmg" -fs HFS+ -format UDZO -ov "$dmg" -quiet
+hdiutil create -volname "NotchOS $version" -srcfolder "$out/dmg" -fs HFS+ -format UDZO -ov "$dmg" -quiet
 identity=$(security find-identity -v -p codesigning | awk -F'"' '/Developer ID Application/ {print $2; exit}')
 if [[ -n $identity ]]; then
     codesign --sign "$identity" --timestamp "$dmg"
@@ -107,32 +107,32 @@ fi
 mkdir -p "$out/updates"
 cp "$dmg" "$out/updates/"
 [[ -f appcast.xml ]] && cp appcast.xml "$out/updates/"  # keeps the earlier releases' entries
-cp "$notes" "$out/updates/ILoveNotch-$version.md"      # embedded in the update prompt
+cp "$notes" "$out/updates/NotchOS-$version.md"      # embedded in the update prompt
 "$sparkle/generate_appcast" --embed-release-notes \
-    --download-url-prefix "https://github.com/niyamvora/ILoveNotch/releases/download/$tag/" "$out/updates"
+    --download-url-prefix "https://github.com/tusharv2005/NotchOS/releases/download/$tag/" "$out/updates"
 cp "$out/updates/appcast.xml" appcast.xml
 
 echo "== Drafting the GitHub release"
-# Also as ILoveNotch.dmg, so https://github.com/niyamvora/ILoveNotch/releases/latest/download/ILoveNotch.dmg
+# Also as NotchOS.dmg, so https://github.com/tusharv2005/NotchOS/releases/latest/download/NotchOS.dmg
 # always downloads the newest release.
-cp "$dmg" "$out/ILoveNotch.dmg"
-(cd "$out" && shasum -a 256 "ILoveNotch-$version.dmg" ILoveNotch.dmg >SHA256SUMS)
+cp "$dmg" "$out/NotchOS.dmg"
+(cd "$out" && shasum -a 256 "NotchOS-$version.dmg" NotchOS.dmg >SHA256SUMS)
 # The release page gets how to install after the notes, for anyone who lands there; the update prompt
 # doesn't need it. One line per paragraph: GitHub shows a line break as one.
 cat "$notes" - >"$out/release-page.md" <<INSTALL
 
 ### Install
 
-Download **ILoveNotch-$version.dmg** below, open it, and drag ILoveNotch into Applications. It updates itself from then on; if you already have it, choose **Check for Updates…** from its menu bar item. Or with Homebrew: \`brew install --cask niyamvora/tap/ilovenotch\`.
+Download **NotchOS-$version.dmg** below, open it, and drag NotchOS into Applications. It updates itself from then on; if you already have it, choose **Check for Updates…** from its menu bar item. Or with Homebrew: \`brew install --cask tusharv2005/tap/notchos\`.
 
 Needs macOS 14.6 or later. Signed and notarized by Apple. \`SHA256SUMS\` has the checksums.
 INSTALL
 # The notes go above the generated list of pull requests. The tag goes on the commit just built, even
 # if main moves before the draft is published.
-flags=(--draft --title "ILoveNotch $version" --notes-file "$out/release-page.md" --generate-notes
+flags=(--draft --title "NotchOS $version" --notes-file "$out/release-page.md" --generate-notes
     --target "$(git rev-parse HEAD)")
 [[ $version == *-* ]] && flags+=(--prerelease)
-gh release create "$tag" "$dmg" "$out/ILoveNotch.dmg" "$out/SHA256SUMS" "${flags[@]}"
+gh release create "$tag" "$dmg" "$out/NotchOS.dmg" "$out/SHA256SUMS" "${flags[@]}"
 
 cat <<DONE
 

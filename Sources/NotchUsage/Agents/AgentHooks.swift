@@ -72,7 +72,7 @@ public struct AgentHooks: Sendable {
     /// A copy of each settings file from just before NotchOS last changed it.
     let backups: URL
 
-    static let scriptName = "ilovenotch-agent-hook"
+    static let scriptName = "notchos-agent-hook"
 
     public init() {
         self.init(
@@ -228,7 +228,7 @@ public struct AgentHooks: Sendable {
         #!/bin/sh
         # NotchOS agent status, run by Claude Code's and Codex's hooks. NotchOS adds the hooks
         # when you connect a tool in Settings > Agents and removes them when you disconnect.
-        # Usage: ilovenotch-agent-hook <claude|codex> <working|waiting|resumed|done|ended> < hook.json
+        # Usage: notchos-agent-hook <claude|codex> <working|waiting|resumed|done|ended> < hook.json
         tool=$1
         event=$2
         dir="$(dirname "$0")/Agents"

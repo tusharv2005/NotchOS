@@ -26,7 +26,7 @@ It works with no app on the phone, over your home Wi-Fi, and with no internet or
 
 Google has published its Quick Share code (the `google/nearby` repository, Apache-2.0), and NearDrop (Unlicense) is a working Mac version written in Swift. Details below come from those projects. The first milestone confirms each one against your real phone.
 
-1. **Finding devices.** Each device announces itself on the local network using Bonjour (the same service discovery AirPrint uses), under the service type `_FC9F5ED42C8A._tcp`. The announcement's name encodes a random 4-character device ID. A small attached record carries the device name and type ("Niyam's MacBook", laptop).
+1. **Finding devices.** Each device announces itself on the local network using Bonjour (the same service discovery AirPrint uses), under the service type `_FC9F5ED42C8A._tcp`. The announcement's name encodes a random 4-character device ID. A small attached record carries the device name and type ("Tushar's MacBook", laptop).
 2. **Connecting.** The sender opens a plain network connection to the receiver. Messages are length-prefixed "protobuf" messages, a compact data format Google defines. The first message is a connection request.
 3. **Encryption handshake (called UKEY2).**
    - The two sides agree on shared keys using P-256 elliptic-curve key exchange.
@@ -175,7 +175,7 @@ Tests/NotchTransferTests/
 
 1. **Decisions:**
    - Receiving on by default, or off until you turn it on? I suggest off, with the 10-minute visible mode.
-   - The save folder: `~/Downloads`, or `~/Downloads/ILoveNotch`?
+   - The save folder: `~/Downloads`, or `~/Downloads/NotchOS`?
    - Include it in the App Store edition from the start, or ship in the GitHub build first? I suggest GitHub first, since App Review may question an unofficial protocol.
    - Branch name: `android-quick-share`, a plain name as you prefer.
 2. **Testing on your side:** a Mac to build it (`make check`, then run), the S25 Ultra on the same Wi-Fi with Quick Share set to "Anyone nearby", and screenshots or logs when something fails.

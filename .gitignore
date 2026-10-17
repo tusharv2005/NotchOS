@@ -8,7 +8,7 @@ xcuserdata/
 # Generated from project.yml by XcodeGen
 *.xcodeproj/
 
-# Third-party apps and reference binaries. ILoveNotch is a clean-room project:
+# Third-party apps and reference binaries. NotchOS is a clean-room project:
 # the repository may only contain original or permissively licensed material.
 *.app
 NotchNook.app/

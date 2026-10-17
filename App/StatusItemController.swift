@@ -80,15 +80,15 @@ final class StatusItemController: NSObject, NSMenuDelegate {
 }
 
 enum Links {
-    static let repository = URL(string: "https://github.com/niyamvora/ILoveNotch")!
-    static let releases = URL(string: "https://github.com/niyamvora/ILoveNotch/releases")!
-    static let sponsor = URL(string: "https://github.com/sponsors/niyamvora")!
-    static let contributing = URL(string: "https://github.com/niyamvora/ILoveNotch/blob/main/CONTRIBUTING.md")!
-    static let newIssue = URL(string: "https://github.com/niyamvora/ILoveNotch/issues/new/choose")!
-    static let privacy = URL(string: "https://github.com/niyamvora/ILoveNotch/blob/main/PRIVACY.md")!
+    static let repository = URL(string: "https://github.com/tusharv2005/NotchOS")!
+    static let releases = URL(string: "https://github.com/tusharv2005/NotchOS/releases")!
+    static let sponsor = URL(string: "https://github.com/sponsors/tusharv2005")!
+    static let contributing = URL(string: "https://github.com/tusharv2005/NotchOS/blob/main/CONTRIBUTING.md")!
+    static let newIssue = URL(string: "https://github.com/tusharv2005/NotchOS/issues/new/choose")!
+    static let privacy = URL(string: "https://github.com/tusharv2005/NotchOS/blob/main/PRIVACY.md")!
     /// Rendered on GitHub; the direct download also carries a copy in its Resources.
     static let acknowledgements = URL(
-        string: "https://github.com/niyamvora/ILoveNotch/blob/main/THIRD_PARTY_NOTICES.md")!
+        string: "https://github.com/tusharv2005/NotchOS/blob/main/THIRD_PARTY_NOTICES.md")!
 
     /// A release's page, with its notes and download.
     static func releaseNotes(_ version: String) -> URL { releases.appending(path: "tag/v\(version)") }

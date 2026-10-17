@@ -21,16 +21,16 @@ objects, replace those.
 
 | Field | Value | Limit |
 |-------|-------|-------|
-| Name | ILoveNotch | 30 |
+| Name | NotchOS | 30 |
 | Subtitle | Your notch, finally useful | 30 |
 | Bundle ID | `cafe.opennotch.app` (App Store app ID 6815805975), shared with the direct download so settings and permissions carry over | permanent |
-| SKU | `ilovenotch-mac` | internal |
+| SKU | `notchos-mac` | internal |
 | Primary category | Productivity (matches `LSApplicationCategoryType`) | |
 | Secondary category | Utilities | |
 | Age rating | 4+ (every question answered None) | |
 | Content rights | Doesn't use third-party content | |
 | Price | US$1.99 (set for the United States; Apple prices the other storefronts from it), in all 175 countries and regions | |
-| Copyright | 2026 Niyam Vora | |
+| Copyright | 2026 Tushar Varshney | |
 
 ## Promotional text (170)
 
@@ -39,7 +39,7 @@ tasks, and start a timer without leaving what you're doing.
 
 ## Description (4,000)
 
-ILoveNotch turns the notch on your MacBook into a small, fast tray for the things you reach for all
+NotchOS turns the notch on your MacBook into a small, fast tray for the things you reach for all
 day. Hover over the notch or click it, and it opens right where you're already looking.
 
 MEDIA
@@ -88,9 +88,9 @@ notch,menu bar,now playing,shelf,drag and drop,airdrop,reminders,calendar,timer,
 
 | Field | Value |
 |-------|-------|
-| Support URL | https://github.com/niyamvora/ILoveNotch/issues |
-| Marketing URL | https://github.com/niyamvora/ILoveNotch |
-| Privacy Policy URL | https://github.com/niyamvora/ILoveNotch/blob/main/PRIVACY.md |
+| Support URL | https://github.com/tusharv2005/NotchOS/issues |
+| Marketing URL | https://github.com/tusharv2005/NotchOS |
+| Privacy Policy URL | https://github.com/tusharv2005/NotchOS/blob/main/PRIVACY.md |
 
 ## Screenshots
 
@@ -122,14 +122,14 @@ network requests, so App Store Connect doesn't ask on each upload.
 
 ## App Privacy (answered in App Store Connect)
 
-Data collection: **None** ("Data Not Collected"). ILoveNotch doesn't collect data or track.
+Data collection: **None** ("Data Not Collected"). NotchOS doesn't collect data or track.
 Calendar, Reminders, camera, and system audio stay on the Mac and are never sent anywhere. Only the
 website can answer this; the API can't.
 
 ## Review notes
 
-ILoveNotch is a menu-bar-style utility with no Dock icon. To open it, move the pointer to the notch
-(or the pill at the top of the screen on Macs without a notch), or click the ILoveNotch item in the
+NotchOS is a menu-bar-style utility with no Dock icon. To open it, move the pointer to the notch
+(or the pill at the top of the screen on Macs without a notch), or click the NotchOS item in the
 menu bar and choose Settings. Calendar and Reminders access is requested only when you click
 Continue in those tabs. The Mirror tab is off until turned on in Settings › Mirror (or opened from
 the app drawer, the grid button after the tabs), and uses the camera only while it's open. Media shows what's playing in Music or Spotify; its waveform asks for

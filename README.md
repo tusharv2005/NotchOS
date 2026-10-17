@@ -1,21 +1,17 @@
 
 
-https://github.com/user-attachments/assets/9d0c486c-5169-4297-b8b9-8fedbb9eadda
-
 <p align="center">
-  <img src="docs/media/icon.png" width="128" alt="The ILoveNotch icon: a notch with heart eyes">
+  <img src="docs/media/icon.png" width="128" alt="The NotchOS icon: a notch with heart eyes">
 </p>
 
-<h1 align="center">ILoveNotch</h1>
+<h1 align="center">NotchOS</h1>
 
 <p align="center"><b>Your MacBook's notch, finally useful.</b> Free and open source.</p>
 
 <p align="center">
-  <a href="https://github.com/niyamvora/ILoveNotch/releases/latest"><img src="https://img.shields.io/github/v/release/niyamvora/ILoveNotch?label=download&logo=apple&color=e8573f" alt="Download the latest release"></a>
-  <a href="https://github.com/niyamvora/ILoveNotch/actions/workflows/ci.yml"><img src="https://github.com/niyamvora/ILoveNotch/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
+  <a href="https://github.com/tusharv2005/NotchOS/actions/workflows/ci.yml"><img src="https://github.com/tusharv2005/NotchOS/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" alt="License: MIT"></a>
   <a href="#build--run"><img src="https://img.shields.io/badge/macOS-14.6%2B-black?logo=apple" alt="macOS 14.6 or later"></a>
-  <a href="https://github.com/sponsors/niyamvora"><img src="https://img.shields.io/badge/sponsor-%E2%9D%A4-db61a2?logo=githubsponsors&logoColor=white" alt="Sponsor"></a>
 </p>
 
 An **original, open-source** macOS menu-notch utility — turns the notch on Apple
@@ -46,24 +42,15 @@ near-zero idle CPU** ([measured](#efficiency)).
 
 ## Download
 
-**[Download ILoveNotch](https://github.com/niyamvora/ILoveNotch/releases/latest/download/ILoveNotch.dmg)**
-(free, macOS 14.6 or later): open the download, drag ILoveNotch into
-Applications, and open it. It updates itself from then on. See
-[what's new](https://github.com/niyamvora/ILoveNotch/releases/latest), and every
-version in the [changelog](CHANGELOG.md).
-
-- **Homebrew:** `brew install --cask niyamvora/tap/ilovenotch`
-- **Mac App Store:** in review. The App Store edition has everything except AI
-  Usage, Agents, the Sound tab, and sharing with Android. Try it now through the
-  [TestFlight beta](https://testflight.apple.com/join/6p3zqhCS).
-- **From source:** see [Build & run](#build--run).
+NotchOS 1.0 is free and runs on macOS 14.6 or later. Build it from source
+in a few minutes: see [Build & run](#build--run).
 
 ## Coming from NotchNook?
 
 NotchNook's license server went offline in September 2026, so paid licenses
 stopped activating, and lo.cafe
 [told customers to use an alternative](https://x.com/locafe_24h/status/2095262917486665735).
-ILoveNotch covers the everyday things: now playing and every app's volume, a
+NotchOS covers the everyday things: now playing and every app's volume, a
 file shelf, and your calendar, plus Reminders, notes, Shortcuts, timers, and
 your network speed. There's no license,
 account, or server that can go away, and it's MIT licensed, so the code stays
@@ -129,7 +116,7 @@ public and buildable whatever happens to the project.
 - **System activities.** Volume, charging and battery, and Bluetooth accessory
   batteries show briefly in the notch, and it can stand in for the macOS volume
   display.
-- **Show in Notch.** A Shortcuts action and an `ilovenotch://` link put your own
+- **Show in Notch.** A Shortcuts action and an `notchos://` link put your own
   message in the notch, from any shortcut, automation, script, or app.
   [More below](#show-in-notch).
 - **Settings.** Laid out like System Settings: a sidebar with a page for each
@@ -144,7 +131,7 @@ public and buildable whatever happens to the project.
 
 Notch utilities are genuinely useful, but the popular closed-source one drew
 complaints about heavy RAM/CPU use, and in September 2026 its license server
-went offline, so paid licenses stopped working. ILoveNotch is a free, efficient
+went offline, so paid licenses stopped working. NotchOS is a free, efficient
 alternative with nothing to switch off: no license, no account, no server, and
 code anyone can inspect, build, and improve.
 
@@ -213,10 +200,10 @@ and the [architecture diagram](docs/plan/architecture.html).
 Requires macOS 14.6+, Xcode 16+, and [Homebrew](https://brew.sh).
 
 ```bash
-git clone --recurse-submodules https://github.com/niyamvora/ILoveNotch.git
-cd ILoveNotch
+git clone --recurse-submodules https://github.com/tusharv2005/NotchOS.git
+cd NotchOS
 make setup                        # installs XcodeGen (Brewfile) and fetches submodules
-make run                          # generate the Xcode project, build, and launch ILoveNotch.app
+make run                          # generate the Xcode project, build, and launch NotchOS.app
 make install                      # build a Release app into /Applications and launch it
 make update                       # pull main when it's clean, then reinstall and relaunch
 make test                         # unit, snapshot, and performance tests (plain SwiftPM)
@@ -226,7 +213,7 @@ scripts/soak.sh                   # sample the running app's CPU and memory agai
 ```
 
 `make project` generates `OpenNotch.xcodeproj` (git-ignored) for working in Xcode. The project,
-its targets, and the code keep the original name OpenNotch; the app is ILoveNotch everywhere
+its targets, and the code keep the original name OpenNotch; the app is NotchOS everywhere
 people see it.
 Watch the state machine live with:
 
@@ -237,15 +224,15 @@ log stream --level debug --predicate 'subsystem == "cafe.opennotch.app"'
 ### Test it on your Mac
 
 1. `make install` builds a Release app into `/Applications` and launches it.
-   There's no Dock icon: look for the notch, and for the ILoveNotch item in the
-   menu bar (Settings…, Update ILoveNotch, About, What's New, Sponsor, Quit).
+   There's no Dock icon: look for the notch, and for the NotchOS item in the
+   menu bar (Settings…, Update NotchOS, About, What's New, Sponsor, Quit).
 2. Quit other notch apps first; two apps can't share the notch.
 3. Hover the notch (or click it, or pull down with two fingers), then try each
    tab. Calendar and Tasks ask for access the first time you tap **Continue**.
    Resize the open notch by dragging its bottom-right corner, keep it open with
    the pin beside Settings, and pick how it looks, opens, and closes in
    **Settings › Appearance**.
-4. To get the latest, choose **Update ILoveNotch** from the menu bar item (or run
+4. To get the latest, choose **Update NotchOS** from the menu bar item (or run
    `make update`). It pulls `main` when your checkout is clean, rebuilds, and
    relaunches; see [updates](docs/updates.md).
 5. With an Apple Development certificate in your keychain (Xcode › Settings ›
@@ -254,15 +241,15 @@ log stream --level debug --predicate 'subsystem == "cafe.opennotch.app"'
    each rebuild.
 6. To start at login, turn on **Settings › General › Launch at login**.
 7. To uninstall, choose **Quit** from the menu bar item and delete
-   `/Applications/ILoveNotch.app`; data lives in
+   `/Applications/NotchOS.app`; data lives in
    `~/Library/Application Support/OpenNotch`.
 
 ## Now playing
 
 Since macOS 15.4, only Apple's own processes may read system-wide now-playing
-information. ILoveNotch uses [mediaremote-adapter](https://github.com/ungive/mediaremote-adapter),
+information. NotchOS uses [mediaremote-adapter](https://github.com/ungive/mediaremote-adapter),
 which runs in the system `perl` (an Apple process) as a separate helper, so the
-private framework never loads into ILoveNotch. If a future macOS breaks it, Media
+private framework never loads into NotchOS. If a future macOS breaks it, Media
 falls back to Music and Spotify's public notifications and says so.
 
 The waveform under the player moves with the music. It listens to your Mac's
@@ -287,14 +274,13 @@ hover it.
 
 Per-app volume uses macOS 14.2's Core Audio process taps, the permission the
 waveform already asks for, and no audio driver. An app you turn down plays
-through ILoveNotch only while it plays, so its sound gains about 10 ms on the
+through NotchOS only while it plays, so its sound gains about 10 ms on the
 way to your speakers, and a muted app is silenced at its source with no audio
 work at all. With every app at 100% and the tab closed, nothing listens.
 
 ## Network
 
-The Network tab is [NetSpeed](https://github.com/niyamvora/NetSpeed), a menu
-bar app, moved into the notch. On its left is your download speed as it
+The Network tab puts a live network speed meter in the notch. On its left is your download speed as it
 happens, with the upload's under it, over a glowing graph of the last minute. On
 its right is what you've downloaded, uploaded, and both together in the last 24
 hours, 7 days, 30 days, or 12 months, over bars by the hour, day, or month; point
@@ -344,7 +330,7 @@ in **Settings › AI Usage** and kept in your keychain.
 Each provider reads the sign-in its own tool keeps on this Mac and sends it only
 to its own service. What it reads and sends is in
 [PRIVACY.md](PRIVACY.md#ai-usage). The provider code is adapted from
-[OpenUsage](https://github.com/robinebers/openusage) (MIT), and ILoveNotch isn't
+[OpenUsage](https://github.com/robinebers/openusage) (MIT), and NotchOS isn't
 affiliated with it. The tab is in the GitHub build only: reading other tools'
 sign-ins doesn't fit the App Store's sandbox.
 
@@ -374,7 +360,7 @@ many seconds to show it, so any shortcut or automation can put a message in the
 notch. Scripts and other apps can open a link instead:
 
 ```bash
-open -g "ilovenotch://show?title=Build%20done&symbol=hammer.fill&seconds=5"
+open -g "notchos://show?title=Build%20done&symbol=hammer.fill&seconds=5"
 ```
 
 A message shows for 1 to 30 seconds (4 by default) and is never stored. It's
@@ -423,7 +409,7 @@ Good to know:
   now.
 
 If the phone doesn't see your Mac, check **Visible** shows under the shelf, that
-both are on the same Wi-Fi, and that ILoveNotch is on in **System Settings ›
+both are on the same Wi-Fi, and that NotchOS is on in **System Settings ›
 Privacy & Security › Local Network** (and allowed through the firewall, if it
 asked). To see what happens during a transfer:
 
@@ -431,7 +417,7 @@ asked). To see what happens during a transfer:
 log stream --level debug --predicate 'subsystem == "cafe.opennotch.app" && category == "transfer"'
 ```
 
-ILoveNotch's own implementation follows the message definitions in Google's
+NotchOS's own implementation follows the message definitions in Google's
 open-source Quick Share code ([google/nearby](https://github.com/google/nearby),
 Apache-2.0) and the protocol notes of
 [NearDrop](https://github.com/grishka/NearDrop).
@@ -453,20 +439,12 @@ only when you tap **Continue** in their tab.
 
 ## Contributing
 
-Questions and ideas go in [Discussions](https://github.com/niyamvora/ILoveNotch/discussions);
-bugs and feature requests in [Issues](https://github.com/niyamvora/ILoveNotch/issues/new/choose).
+Questions and ideas go in [Discussions](https://github.com/tusharv2005/NotchOS/discussions);
+bugs and feature requests in [Issues](https://github.com/tusharv2005/NotchOS/issues/new/choose).
 See [CONTRIBUTING.md](CONTRIBUTING.md). Report vulnerabilities privately as
 described in [SECURITY.md](SECURITY.md); privacy commitments are in
 [PRIVACY.md](PRIVACY.md).
 
-## Sponsors
-
-ILoveNotch is free and open source. If it's useful to you,
-[sponsor the project](https://github.com/sponsors/niyamvora) to help keep it
-maintained, and star the repo so more people find it.
-
-<!-- ponytail: add a tiered logo table here (like chanhdai.com's README) once there are sponsors -->
-
 ## License
 
-MIT — see [LICENSE](LICENSE).
+MIT — see [LICENSE](LICENSE). Copyright © 2026 Tushar Varshney.
